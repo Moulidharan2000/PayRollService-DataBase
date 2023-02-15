@@ -1,0 +1,46 @@
+mysql> create database PayrollService;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| information_schema |
+| mysql              |
+| payrollservice     |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use PayrollService database;
+Database changed
+
+mysql> show tables;
+Empty set (0.07 sec)
+
+mysql> select database();
++----------------+
+| database()     |
++----------------+
+| payrollservice |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> create table employee_payroll(ID INT unsigned NOT NULL AUTO_INCREMENT, Name varchar(250) NOT NU
+LL, Salary double NOT NULL, Start_Date DATE NOT NULL, PRIMARY KEY(ID));
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> describe employee_payroll;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| ID         | int unsigned | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(250) | NO   |     | NULL    |                |
+| Salary     | double       | NO   |     | NULL    |                |
+| Start_Date | date         | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.06 sec)
