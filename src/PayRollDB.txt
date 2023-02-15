@@ -44,3 +44,17 @@ mysql> describe employee_payroll;
 | Start_Date | date         | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 4 rows in set (0.06 sec)
+
+mysql> INSERT INTO employee_payroll (Name, Salary, Start_Date) VALUES ("John", 500000.00, '2020-01-10'), ("Daniels", 600000.00, '2021-02-15'), ("Raj", 400000.00, '2019-05-02');
+Query OK, 3 rows affected (1.99 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+
+| ID | Name    | Salary | Start_Date |
++----+---------+--------+------------+
+|  1 | John    | 500000 | 2020-01-10 |
+|  2 | Daniels | 600000 | 2021-02-15 |
+|  3 | Raj     | 400000 | 2019-05-02 |
++----+---------+--------+------------+
+3 rows in set (0.00 sec)
