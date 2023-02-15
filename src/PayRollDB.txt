@@ -58,3 +58,12 @@ mysql> select * from employee_payroll;
 |  3 | Raj     | 400000 | 2019-05-02 |
 +----+---------+--------+------------+
 3 rows in set (0.00 sec)
+
+mysql> select * FROM employee_payroll WHERE Start_Date BETWEEN CAST('2020-01-10' AS DATE) AND DATE(NOW());
++----+---------+--------+------------+
+| ID | Name    | Salary | Start_Date |
++----+---------+--------+------------+
+|  1 | John    | 500000 | 2020-01-10 |
+|  2 | Daniels | 600000 | 2021-02-15 |
++----+---------+--------+------------+
+2 rows in set (0.02 sec)
