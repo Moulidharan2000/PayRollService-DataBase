@@ -194,3 +194,87 @@ mysql> select * from employee_payroll;
 |  5 | Prema   | F      | 600000 | 2021-04-05 | NULL       | NULL    |        NULL |
 +----+---------+--------+--------+------------+------------+---------+-------------+
 5 rows in set (0.00 sec)
+
+mysql> update employee_payroll set Department = 'Marketing', Address = 'Bangalore', PhoneNumber = 9865472104;
+Query OK, 5 rows affected (0.03 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> update employee_payroll set Department = 'HR', Address = 'Mumbai', PhoneNumber = 9854521047 where ID = 2;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Department = 'Sales', Address = 'Chennai', PhoneNumber = 8756421045 where ID = 3;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Department = 'Marketing', Address = 'Vizag', PhoneNumber = 8653201456 where ID = 4;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Department = 'HR', Address = 'Hyderabad', PhoneNumber = 9658320145 where ID = 5;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+------------+-----------+-------------+
+| ID | Name    | Gender | Salary | Start_Date | Department | Address   | PhoneNumber |
++----+---------+--------+--------+------------+------------+-----------+-------------+
+|  1 | John    | M      | 500000 | 2020-01-10 | Marketing  | Bangalore |  9865472104 |
+|  2 | Daniels | M      | 600000 | 2021-02-15 | HR         | Mumbai    |  9854521047 |
+|  3 | Raj     | M      | 400000 | 2019-05-02 | Sales      | Chennai   |  8756421045 |
+|  4 | Priya   | F      | 500000 | 2020-05-10 | Marketing  | Vizag     |  8653201456 |
+|  5 | Prema   | F      | 600000 | 2021-04-05 | HR         | Hyderabad |  9658320145 |
++----+---------+--------+--------+------------+------------+-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee_payroll add Basic_Pay INT after PhoneNumber;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Deductions INT after Basic_Pay;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Taxable_Pay INT after Deductions;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Income_Tax INT after Taxable_Pay;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add NeT_Pay INT after Income_Tax;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee_payroll set Basic_Pay = 50000, Deductions = 5000, Taxable_Pay = 3000, Income_Tax = 2000, NeT_Pay = 40000 where ID = 1;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Basic_Pay = 39000, Deductions = 3000, Taxable_Pay = 2000, Income_Tax = 1000, NeT_Pay = 30000 where ID = 2;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Basic_Pay = 60000, Deductions = 5000, Taxable_Pay = 5000, Income_Tax = 5000, NeT_Pay = 45000 where ID = 3;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Basic_Pay = 50000, Deductions = 5000, Taxable_Pay = 5000, Income_Tax = 5000, NeT_Pay = 35000 where ID = 4;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Basic_Pay = 64000, Deductions = 4000, Taxable_Pay = 4000, Income_Tax = 6000, NeT_Pay = 50000 where ID = 5;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+------------+-----------+-------------+-----------+------------+-------------+------------+---------+
+| ID | Name    | Gender | Salary | Start_Date | Department | Address   | PhoneNumber | Basic_Pay | Deductions | Taxable_Pay | Income_Tax | NeT_Pay |
++----+---------+--------+--------+------------+------------+-----------+-------------+-----------+------------+-------------+------------+---------+
+|  1 | John    | M      | 500000 | 2020-01-10 | Marketing  | Bangalore |  9865472104 |     50000 |       5000 |        3000 |       2000 |   40000 |
+|  2 | Daniels | M      | 600000 | 2021-02-15 | HR         | Mumbai    |  9854521047 |     39000 |       3000 |        2000 |       1000 |   30000 |
+|  3 | Raj     | M      | 400000 | 2019-05-02 | Sales      | Chennai   |  8756421045 |     60000 |       5000 |        5000 |       5000 |   45000 |
+|  4 | Priya   | F      | 500000 | 2020-05-10 | Marketing  | Vizag     |  8653201456 |     50000 |       5000 |        5000 |       5000 |   35000 |
+|  5 | Prema   | F      | 600000 | 2021-04-05 | HR         | Hyderabad |  9658320145 |     64000 |       4000 |        4000 |       6000 |   50000 |
++----+---------+--------+--------+------------+------------+-----------+-------------+-----------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
