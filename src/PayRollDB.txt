@@ -171,3 +171,26 @@ mysql> SELECT SUM(Salary) FROM employee_payroll WHERE(Gender = 'F');
 |     1100000 |
 +-------------+
 1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Address varchar(255) after Department;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add PhoneNumber BIGINT(255) after Address;
+Query OK, 0 rows affected, 1 warning (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+------------+---------+-------------+
+| ID | Name    | Gender | Salary | Start_Date | Department | Address | PhoneNumber |
++----+---------+--------+--------+------------+------------+---------+-------------+
+|  1 | John    | M      | 500000 | 2020-01-10 | NULL       | NULL    |        NULL |
+|  2 | Daniels | M      | 600000 | 2021-02-15 | NULL       | NULL    |        NULL |
+|  3 | Raj     | M      | 400000 | 2019-05-02 | NULL       | NULL    |        NULL |
+|  4 | Priya   | F      | 500000 | 2020-05-10 | NULL       | NULL    |        NULL |
+|  5 | Prema   | F      | 600000 | 2021-04-05 | NULL       | NULL    |        NULL |
++----+---------+--------+--------+------------+------------+---------+-------------+
+5 rows in set (0.00 sec)
