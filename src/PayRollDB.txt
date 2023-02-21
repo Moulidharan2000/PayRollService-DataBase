@@ -298,3 +298,83 @@ mysql> select * from employee_Payroll;
 +----+---------+--------+--------+------------+------------+-----------+-------------+-----------+------------+-------------+------------+---------+
 6 rows in set (0.00 sec)
 Rows matched: 6  Changed: 5  Warnings: 0
+
+mysql> select sum(salary) from employee_payroll where gender = 'M' GROUP BY gender;
++-------------+
+| sum(salary) |
++-------------+
+|     1500000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select sum(salary) from employee_payroll where gender = 'F' GROUP BY gender;
++-------------+
+| sum(salary) |
++-------------+
+|     1750000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(Salary) from employee_payroll where gender = 'M' GROUP BY gender;
++-------------+
+| avg(Salary) |
++-------------+
+|      500000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select avg(Salary) from employee_payroll where gender = 'F' GROUP BY gender;
++-------------------+
+| avg(Salary)       |
++-------------------+
+| 583333.3333333334 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select min(Salary) from employee_payroll where gender = 'M' GROUP BY gender;
++-------------+
+| min(Salary) |
++-------------+
+|      400000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select min(Salary) from employee_payroll where gender = 'F' GROUP BY gender;
++-------------+
+| min(Salary) |
++-------------+
+|      500000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(Salary) from employee_payroll where gender = 'M' GROUP BY gender;
++-------------+
+| max(Salary) |
++-------------+
+|      600000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(Salary) from employee_payroll where gender = 'F' GROUP BY gender;
++-------------+
+| max(Salary) |
++-------------+
+|      650000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(Salary) from employee_payroll where gender = 'M' GROUP BY gender;
++---------------+
+| count(Salary) |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select count(Salary) from employee_payroll where gender = 'F' GROUP BY gender;
++---------------+
+| count(Salary) |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.00 sec)
