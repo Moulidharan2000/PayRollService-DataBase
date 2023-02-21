@@ -378,3 +378,34 @@ mysql> select count(Salary) from employee_payroll where gender = 'F' GROUP BY ge
 |             3 |
 +---------------+
 1 row in set (0.00 sec)
+
+mysql> insert into employee_department (Employee_ID, Department_ID, employee_payroll_ID) values(1,10,1);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee_department (Department_ID, employee_payroll_ID) values(20,2);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee_department (Department_ID, employee_payroll_ID) values(30,3);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employee_department (Department_ID, employee_payroll_ID) values(10,4);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into employee_department (Department_ID, employee_payroll_ID) values(20,5);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee_department (Department_ID, employee_payroll_ID) values(30,6);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from employee_department;
++-------------+---------------+---------------------+
+| Employee_ID | Department_ID | employee_payroll_ID |
++-------------+---------------+---------------------+
+|           1 | 10            |                   1 |
+|           2 | 20            |                   2 |
+|           3 | 30            |                   3 |
+|           4 | 10            |                   4 |
+|           5 | 20            |                   5 |
+|           6 | 30            |                   6 |
++-------------+---------------+---------------------+
+6 rows in set (0.00 sec)
